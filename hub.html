@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #fff;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #ddd;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      margin-top: 15px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+  </style>
+  <script>
+    setTimeout(() => {
+      window.location.href = "step2.html"; 
+    }, 2000);
+  </script>
+</head>
+<body>
+  <div class="spinner"></div>
+  <div class="loading-text">Loading...</div>
+</body>
+</html>
