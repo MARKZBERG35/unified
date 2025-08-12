@@ -16,20 +16,33 @@
       font-family: Arial, sans-serif;
       color: #333;
     }
-    .spinner {
-      width: 60px;
-      height: 60px;
-      border: 6px solid #ddd;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+
+    .box {
+      width: 80px;
+      height: 50px;
+      border: 3px solid #3498db;
+      position: relative;
+      margin-top: 40px;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+
+    .file {
+      width: 40px;
+      height: 50px;
+      background: #3498db;
+      position: absolute;
+      top: -70px;
+      left: 20px;
+      animation: drop 1s ease-in-out infinite;
     }
+
+    @keyframes drop {
+      0%   { top: -70px; opacity: 1; }
+      70%  { top: 0px; opacity: 1; }
+      100% { top: 0px; opacity: 0; }
+    }
+
     .loading-text {
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 18px;
       letter-spacing: 1px;
     }
@@ -41,7 +54,9 @@
   </script>
 </head>
 <body>
-  <div class="spinner"></div>
+  <div class="box">
+    <div class="file"></div>
+  </div>
   <div class="loading-text">Loading...</div>
 </body>
 </html>
