@@ -1,430 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unified Hub | File Management & Cloud Collaboration</title>
-  <meta name="description" content="Unified Hub — secure, intelligent file management and cloud collaboration for teams and businesses worldwide.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unified Hub Attorneys | Trusted Counsel for Business & People</title>
+  <meta name="description" content="Unified Hub — full-service law firm specializing in corporate, real estate, family, civil litigation, employment law and intellectual property. Book a consultation.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous">
   <style>
-    /* ====== RESET ====== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ---------- RESET ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0b0c10;
-      color: #c5c6c7;
-      line-height: 1.7;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: #213548;
+      background: #ffffff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.65;
     }
-    a { color: #66fcf1; text-decoration: none; }
-    a:hover { color: #45a29e; }
+    a { color: #b07b2f; text-decoration: none; }
+    a:hover { color: #8a5f21; }
 
-    /* ====== HEADER ====== */
+    /* ---------- LAYOUT ---------- */
+    .container { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
+
     header {
-      background: rgba(31, 40, 51, 0.95);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
+      background: #f8f7f5;
+      border-bottom: 1px solid #e9e6e1;
       position: sticky;
       top: 0;
-      z-index: 999;
-      backdrop-filter: blur(10px);
+      z-index: 1000;
+      backdrop-filter: blur(6px);
     }
-    header h1 { color: #66fcf1; font-size: 1.6rem; }
-    nav a { color: #c5c6c7; margin-left: 1.5rem; font-weight: 500; transition: 0.3s; }
-    nav a:hover { color: #66fcf1; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+    .brand { display:flex; align-items:center; gap:14px; }
+    .brand .logo {
+      width:52px; height:52px; border-radius:8px;
+      background: linear-gradient(135deg,#b07b2f,#d9b27c);
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:700; font-size:18px; box-shadow: 0 4px 12px rgba(162,134,84,0.18);
+    }
+    .brand h1 { font-size:18px; color:#203645; letter-spacing:0.5px; }
+    .tagline { font-size:12px; color:#6b7c86; margin-top:2px; }
 
-    /* ====== ANIMATION ====== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    nav { display:flex; gap:18px; align-items:center; }
+    nav a { color:#213548; font-weight:600; padding:8px 10px; border-radius:6px; font-size:14px; }
+    nav a:hover { background: rgba(176,123,47,0.07); }
 
-    /* ====== HERO ====== */
+    .cta {
+      background:#b07b2f; color:#fff; border:none; padding:10px 16px; border-radius:8px; font-weight:700;
+      cursor:pointer; font-size:14px;
+    }
+    .cta:hover { background:#8a5f21; }
+
+    /* ---------- HERO ---------- */
     .hero {
-      background: linear-gradient(145deg, #1f2833, #0b0c10);
-      text-align: center;
-      padding: 7rem 2rem;
+      background: linear-gradient(180deg,#fff 0%, #fbf9f7 100%);
+      padding:64px 0 48px;
     }
-    .hero h2 {
-      color: #66fcf1;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease;
+    .hero-grid { display:grid; grid-template-columns: 1fr 420px; gap:40px; align-items:center; }
+    .hero h2 { font-family: "Georgia", serif; font-size:36px; color:#16313f; margin-bottom:12px; }
+    .hero p.lead { color:#374f5b; font-size:16px; margin-bottom:18px; }
+    .hero .actions { display:flex; gap:12px; align-items:center; margin-top:8px; }
+    .btn-secondary {
+      background:transparent; border:1px solid #b07b2f; color:#b07b2f; padding:10px 14px; border-radius:8px; font-weight:700; cursor:pointer;
     }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #c5c6c7;
-      font-size: 1.1rem;
-      animation: fadeIn 1.2s ease;
+    .panel {
+      background:#fff; border:1px solid #e9e6e1; border-radius:12px; padding:20px; box-shadow: 0 6px 20px rgba(33,53,72,0.04);
     }
-    .hero button {
-      background: #66fcf1;
-      color: #0b0c10;
-      border: none;
-      padding: 0.9rem 2rem;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .hero button:hover { background: #45a29e; color: #fff; }
+    .contact-mini { font-size:14px; color:#2a4757; }
 
-    /* ====== SECTION ====== */
-    section { padding: 5rem 2rem; max-width: 1100px; margin: auto; }
+    /* ---------- SECTION TITLES ---------- */
+    section { padding:56px 0; }
     h2.section-title {
-      text-align: center;
-      color: #66fcf1;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      position: relative;
+      font-family: "Georgia", serif; font-size:26px; color:#16313f; text-align:center; margin-bottom:12px;
     }
-    h2.section-title::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #45a29e;
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
+    .subtitle { text-align:center; color:#4b6170; margin-bottom:28px; max-width:860px; margin-left:auto; margin-right:auto; }
 
-    /* ====== SERVICES ====== */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+    /* ---------- PRACTICE AREAS ---------- */
+    .areas { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:18px; align-items:stretch; }
+    .area {
+      background:#fff; border:1px solid #efece9; border-radius:10px; padding:20px; transition: transform .28s, box-shadow .28s;
     }
-    .service-card {
-      background: #1f2833;
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: left;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      transition: transform 0.2s;
-    }
-    .service-card:hover { transform: translateY(-6px); }
-    .service-card i {
-      font-size: 2.2rem;
-      color: #66fcf1;
-      margin-bottom: 1rem;
-    }
-    .service-card h3 { color: #fff; margin-bottom: 0.5rem; }
-    .service-card p { font-size: 0.95rem; color: #c5c6c7; }
+    .area:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(33,53,72,0.06); }
+    .area h3 { color:#173243; margin-bottom:8px; font-size:18px; }
+    .area p { color:#4b6170; font-size:14px; margin-bottom:12px; }
+    .area ul { color:#31525f; font-size:14px; margin-left:18px; margin-bottom:8px; }
+    .muted { color:#6b7c86; font-size:14px; }
 
-    /* ====== ABOUT ====== */
-    .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    .about-content img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(102,252,241,0.1);
-    }
-    .about-text { flex: 1; }
+    /* ---------- ABOUT ---------- */
+    .about-grid { display:grid; grid-template-columns: 1fr 430px; gap:30px; align-items:center; }
+    .about-text p { color:#3e5562; margin-bottom:12px; }
+    .stats { display:flex; gap:18px; margin-top:16px; }
+    .stat { background:#fff; border:1px solid #efece9; padding:14px 16px; border-radius:8px; min-width:120px; text-align:center; }
+    .stat h4 { color:#16313f; margin-bottom:6px; font-size:18px; }
+    .stat p { color:#6b7c86; font-size:13px; }
 
-    /* ====== TEAM ====== */
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 2rem;
-      text-align: center;
+    /* ---------- ATTORNEYS ---------- */
+    .team { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+    .lawyer {
+      background:#fff; border:1px solid #efece9; border-radius:10px; padding:20px; text-align:left;
     }
-    .team-member {
-      background: #1f2833;
-      border-radius: 10px;
-      padding: 2rem 1rem;
-      transition: transform 0.3s;
+    .avatar {
+      width:78px; height:78px; border-radius:10px; background:linear-gradient(135deg,#d9b27c,#b07b2f);
+      display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800;
+      font-size:22px; margin-right:14px;
     }
-    .team-member:hover { transform: scale(1.03); }
-    .team-member img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 3px solid #66fcf1;
-    }
+    .lawyer-head { display:flex; align-items:center; gap:0; margin-bottom:12px; }
+    .lawyer h3 { font-size:18px; color:#16313f; }
+    .lawyer p.role { color:#4b6170; font-weight:600; margin-bottom:10px; font-size:13px; }
 
-    /* ====== TESTIMONIALS ====== */
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
     .testimonial {
-      background: #1f2833;
-      border-left: 5px solid #66fcf1;
-      padding: 2rem;
-      border-radius: 10px;
-      font-style: italic;
+      background:#fff; border:1px solid #efece9; border-radius:10px; padding:20px; font-style:italic; color:#2f4a57;
     }
+    .quote { margin-bottom:12px; color:#2f4a57; }
+    .t-author { color:#16313f; font-weight:700; font-size:14px; }
 
-    /* ====== FAQ ====== */
-    .faq-item {
-      background: #1f2833;
-      margin-bottom: 1rem;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
+    /* ---------- INSIGHTS ---------- */
+    .insights { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .post {
+      background:#fff; border:1px solid #efece9; border-radius:10px; padding:18px; min-height:170px;
     }
-    .faq-item h3 {
-      display: flex;
-      justify-content: space-between;
-      color: #66fcf1;
-      font-size: 1.1rem;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      color: #c5c6c7;
-      margin-top: 0.5rem;
-    }
-    .faq-item.active .faq-answer { max-height: 200px; }
+    .post h4 { color:#16313f; margin-bottom:8px; font-size:16px; }
+    .meta { color:#6b7c86; font-size:13px; margin-bottom:10px; }
 
-    /* ====== CONTACT ====== */
-    form {
-      display: grid;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-    input, textarea {
-      background: #1f2833;
-      border: 1px solid #45a29e;
-      padding: 0.8rem;
-      color: #c5c6c7;
-      border-radius: 5px;
-      width: 100%;
-    }
-    button.submit {
-      background: #66fcf1;
-      color: #0b0c10;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button.submit:hover { background: #45a29e; color: #fff; }
+    /* ---------- AWARDS ---------- */
+    .awards { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; align-items:center; }
+    .award { background:#fff; border:1px solid #efece9; padding:12px 14px; border-radius:8px; color:#16313f; font-weight:600; }
 
-    /* ====== FOOTER ====== */
-    footer {
-      background: #1f2833;
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #c5c6c7;
+    /* ---------- PRICING/CONSULTATION INFO ---------- */
+    .consult-cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .consult {
+      background:#fff; border:1px solid #efece9; border-radius:10px; padding:18px; text-align:center;
     }
-    footer a { color: #66fcf1; }
+    .price { font-size:22px; color:#b07b2f; font-weight:800; margin-bottom:10px; }
+    .small { color:#6b7c86; font-size:13px; }
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 768px) {
-      .about-content { flex-direction: column; text-align: center; }
-      .hero h2 { font-size: 2.2rem; }
+    /* ---------- FAQ ---------- */
+    .faq { max-width:900px; margin:0 auto; }
+    .faq-item { background:#fff; border:1px solid #efece9; border-radius:8px; padding:14px; margin-bottom:12px; cursor:pointer; }
+    .faq-item h4 { color:#16313f; font-size:15px; }
+    .faq-item p { color:#3e5562; margin-top:8px; display:none; }
+    .faq-item.open p { display:block; }
+
+    /* ---------- CONTACT ---------- */
+    .contact-panel { display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+    .contact-form { background:#fff; border:1px solid #efece9; padding:18px; border-radius:10px; }
+    input, textarea, select {
+      width:100%; padding:10px 12px; margin-top:8px; border:1px solid #e1dedb; border-radius:6px; font-size:14px; color:#23393f;
     }
+    textarea{ min-height:140px; resize:vertical; }
+    .contact-info { background:#fff; border:1px solid #efece9; padding:18px; border-radius:10px; font-size:14px; color:#2f4a57; }
+    .muted-small { color:#6b7c86; font-size:13px; }
 
-    /* ====== KEYFRAMES ====== */
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+    /* ---------- FOOTER ---------- */
+    footer { background:#f8f7f5; border-top:1px solid #e9e6e1; padding:28px 0; margin-top:36px; color:#405a66; }
+    footer p { font-size:14px; }
+    .small-center { text-align:center; color:#6b7c86; font-size:13px; margin-top:8px; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:1000px) {
+      .hero-grid, .about-grid, .contact-panel { grid-template-columns:1fr; }
+      .topbar { flex-direction:column; align-items:flex-start; gap:10px; }
+      nav { flex-wrap:wrap; gap:8px; }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Unified Hub</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#team">Team</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">UH</div>
+        <div>
+          <h1>Unified Hub</h1>
+          <div class="tagline">Trusted Counsel • Strategic Solutions</div>
+        </div>
+      </div>
 
-<section id="home" class="hero">
-  <h2>Smart File Management for a Connected World</h2>
-  <p>Unified Hub empowers businesses and individuals to securely store, organize, and collaborate across files in one powerful hub. Designed for performance, built for trust.</p>
-  <button onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Explore Solutions</button>
-</section>
-
-<section id="services" class="fade-in">
-  <h2 class="section-title">Our Services</h2>
-  <div class="services">
-    <div class="service-card">
-      <i class="fas fa-cloud-upload-alt"></i>
-      <h3>Cloud Storage & Access</h3>
-      <p>Upload, organize, and access your data from anywhere in the world. Our ultra-secure cloud servers offer end-to-end encryption, high redundancy, and lightning-fast retrieval. Whether you're managing media files, documents, or archives — Unified Hub keeps them safe and instantly accessible.</p>
+      <nav aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#practice">Practice Areas</a>
+        <a href="#about">About</a>
+        <a href="#team">Attorneys</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+        <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Book a Consultation</button>
+      </nav>
     </div>
-    <div class="service-card">
-      <i class="fas fa-lock"></i>
-      <h3>Data Security & Compliance</h3>
-      <p>Our platform complies with top industry standards (GDPR, ISO 27001). Each file is encrypted with AES-256-bit security, ensuring absolute confidentiality. We also provide user-level permission controls, 2FA, and automated breach detection.</p>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h2>Expert legal counsel for businesses and people.</h2>
+        <p class="lead">Unified Hub provides thoughtful, outcome-focused legal services across corporate, real estate, family, civil litigation, employment and intellectual property law. Our attorneys combine seasoned expertise with personalized service to protect your interests and advance your goals.</p>
+
+        <div class="actions">
+          <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Book a Consultation</button>
+          <button class="btn-secondary" onclick="document.querySelector('#insights').scrollIntoView({behavior:'smooth'})">Read Legal Insights</button>
+        </div>
+
+        <div style="margin-top:22px;" class="muted">
+          <strong>Located:</strong> 1247 Harbor View Drive, Suite 400, Costa Mesa, CA 92626 • <strong>Founded:</strong> 2022
+        </div>
+      </div>
+
+      <div class="panel">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+          <div>
+            <div style="color:#6b7c86; font-size:13px;">Request a consultation</div>
+            <div style="font-weight:800; font-size:18px; color:#16313f;">Speak with an experienced attorney</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-weight:700; color:#b07b2f;">(800) 555-0199</div>
+            <div class="muted-small">Mon–Fri • 9:00–17:00</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px solid #efece9; margin:14px 0;">
+        <div style="font-size:14px; color:#35505b;">
+          <strong>How we help</strong>
+          <ul style="margin-top:10px; color:#415a66; font-size:14px;">
+            <li>Strategic counsel for transactions and disputes</li>
+            <li>Practical solutions with clear next steps</li>
+            <li>Dedicated attorneys who prioritize client goals</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="service-card">
-      <i class="fas fa-robot"></i>
-      <h3>AI File Organization</h3>
-      <p>Our AI engine intelligently categorizes and tags your files for quick retrieval. Duplicate detection, smart search, and predictive sorting help teams save hours every week while maintaining perfect file hygiene.</p>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section id="practice">
+    <div class="container">
+      <h2 class="section-title">Practice Areas</h2>
+      <p class="subtitle">Comprehensive legal services tailored to your needs. Each practice area is supported by experienced attorneys and a proven approach to achieve practical results.</p>
+
+      <div class="areas">
+
+        <!-- Corporate & Business Law -->
+        <article class="area">
+          <h3><i class="fa-solid fa-briefcase" style="margin-right:8px; color:#b07b2f;"></i> Corporate & Business Law</h3>
+          <p>We advise corporations, partnerships, and startups on formation, governance, mergers & acquisitions, commercial contracts, and shareholder matters. Our team helps clients anticipate risk, negotiate durable agreements, and execute transactions efficiently.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Entity formation & governance</li>
+            <li>Mergers, acquisitions & asset purchases</li>
+            <li>Commercial contracts, NDAs, licensing</li>
+            <li>Corporate compliance & director duties</li>
+          </ul>
+          <p class="muted">Clients receive tailored corporate playbooks, risk assessments, and hands-on support throughout negotiations and closings.</p>
+        </article>
+
+        <!-- Real Estate Law -->
+        <article class="area">
+          <h3><i class="fa-solid fa-house-chimney" style="margin-right:8px; color:#b07b2f;"></i> Real Estate Law</h3>
+          <p>We represent owners, developers, lenders, and tenants in both transactional and litigation matters. From purchase agreements to title disputes and leasing, our team ensures outcomes that preserve value and mitigate exposure.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Commercial purchase & sale agreements</li>
+            <li>Leasing negotiations & tenant advocacy</li>
+            <li>Title review, due diligence & escrow</li>
+            <li>Zoning, land use & development agreements</li>
+          </ul>
+          <p class="muted">We partner with surveyors, title companies, and municipal counsel to provide cohesive real estate solutions.</p>
+        </article>
+
+        <!-- Family Law -->
+        <article class="area">
+          <h3><i class="fa-solid fa-scale-balanced" style="margin-right:8px; color:#b07b2f;"></i> Family Law</h3>
+          <p>Our family law practice handles sensitive matters with discretion and clarity — including divorce, custody, spousal support, prenuptial agreements, and asset division. We prioritize clients’ long-term wellbeing in every negotiation and court appearance.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Divorce and legal separation</li>
+            <li>Child custody and visitation</li>
+            <li>Spousal & child support calculations</li>
+            <li>Prenuptial and postnuptial agreements</li>
+          </ul>
+          <p class="muted">We offer mediation-focused alternatives when appropriate, reducing cost and emotional strain while protecting rights.</p>
+        </article>
+
+        <!-- Civil Litigation -->
+        <article class="area">
+          <h3><i class="fa-solid fa-gavel" style="margin-right:8px; color:#b07b2f;"></i> Civil Litigation</h3>
+          <p>From contract disputes to business torts and regulatory matters, our litigators craft persuasive strategies to pursue or defend claims in state and federal courts. We emphasize early case assessment and cost-effective dispute resolution.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Breach of contract</li>
+            <li>Business torts and partnership disputes</li>
+            <li>Complex commercial litigation</li>
+            <li>Alternative dispute resolution (mediation/arbitration)</li>
+          </ul>
+          <p class="muted">We build litigation plans focused on case value, timeline, and client objectives — from demand letters through trial and appeal.</p>
+        </article>
+
+        <!-- Employment & Labor Law -->
+        <article class="area">
+          <h3><i class="fa-solid fa-user-tie" style="margin-right:8px; color:#b07b2f;"></i> Employment & Labor Law</h3>
+          <p>We counsel employers and employees on workplace issues, policy development, and dispute resolution. Our practice covers wage & hour compliance, discrimination claims, wrongful termination defense, and employment agreements.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Employee handbooks & workplace policies</li>
+            <li>Employment contracts and restrictive covenants</li>
+            <li>Discrimination and harassment claims</li>
+            <li>Internal investigations and regulatory defense</li>
+          </ul>
+          <p class="muted">We help employers implement compliance programs and advise employees on enforcement of workplace rights.</p>
+        </article>
+
+        <!-- Intellectual Property -->
+        <article class="area">
+          <h3><i class="fa-solid fa-lightbulb" style="margin-right:8px; color:#b07b2f;"></i> Intellectual Property</h3>
+          <p>Protecting innovations and creative assets is core to our IP practice. We assist clients with trademark clearance and registration, copyright matters, licensing agreements, and IP enforcement strategies.</p>
+          <p><strong>Typical matters:</strong></p>
+          <ul>
+            <li>Trademark search and registration</li>
+            <li>Copyright registration and enforcement</li>
+            <li>Licensing and technology transfer</li>
+            <li>IP due diligence for transactions</li>
+          </ul>
+          <p class="muted">We coordinate with patent agents when inventions require patent protection and offer holistic IP strategies aligned to business goals.</p>
+        </article>
+
+      </div>
     </div>
-    <div class="service-card">
-      <i class="fas fa-users"></i>
-      <h3>Collaboration & Sharing</h3>
-      <p>Empower your team to co-edit, comment, and review files in real-time. Assign permissions, track revisions, and integrate with Slack, Google Workspace, and Microsoft Teams for frictionless collaboration.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Unified Hub</h2>
+      <p class="subtitle">At Unified Hub we combine legal excellence with a practical approach. Our attorneys deliver strategic counsel grounded in client objectives and commercial realities.</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Founded in 2022, Unified Hub was created to offer modern legal services that balance deep legal knowledge with pragmatic solutions. We advise entrepreneurs, established businesses, and individuals on matters that shape outcomes—transactions, disputes, regulatory issues, and personal legal decisions.</p>
+          <p>We value clarity. Clients can expect plain-spoken advice, transparent fee estimates, and a partner-style approach where your priorities guide every recommendation. We invest in continuing legal education and collaborative staffing to ensure each case benefits from specialized experience.</p>
+
+          <div class="stats" aria-hidden="true">
+            <div class="stat">
+              <h4>5k+</h4>
+              <p>Client engagements</p>
+            </div>
+            <div class="stat">
+              <h4>95%</h4>
+              <p>Client satisfaction</p>
+            </div>
+            <div class="stat">
+              <h4>30+</h4>
+              <p>States served</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel" style="padding:18px;">
+            <h3 style="margin-bottom:10px; color:#16313f;">Our Approach</h3>
+            <p class="muted">We combine rigorous legal analysis with pragmatic business sense. Our approach includes:</p>
+            <ul style="margin-top:10px; color:#2f525f;">
+              <li>Immediate case triage and risk assessment</li>
+              <li>Customized strategy aligned to client goals</li>
+              <li>Clear timelines and transparent communication</li>
+              <li>Cost-aware and efficient matter management</li>
+            </ul>
+            <div style="margin-top:16px; display:flex; gap:10px;">
+              <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Book a Consultation</button>
+              <button class="btn-secondary" onclick="document.querySelector('#insights').scrollIntoView({behavior:'smooth'})">View Insights</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="service-card">
-      <i class="fas fa-database"></i>
-      <h3>Backup & Disaster Recovery</h3>
-      <p>Automatic backups every 24 hours, with real-time version history. In case of data loss, restore entire directories or individual files in seconds. Our distributed architecture ensures 99.99% uptime reliability.</p>
+  </section>
+
+  <!-- ATTORNEYS -->
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title">Attorneys</h2>
+      <p class="subtitle">A focused team of experienced litigators and counselors. Three lead attorneys provide direct access and senior-level oversight to every engagement.</p>
+
+      <div class="team">
+        <!-- Michelle Hernandez (Lead) -->
+        <article class="lawyer">
+          <div class="lawyer-head">
+            <div class="avatar">MH</div>
+            <div>
+              <h3>Michelle Hernandez</h3>
+              <div class="role">Managing Partner — Lead, Civil Litigation & Family Law</div>
+            </div>
+          </div>
+          <p>Michelle is a seasoned trial attorney known for clear strategic thinking and persuasive advocacy. She leads our civil litigation and family law practices, combining courtroom experience with high-level negotiation skills. Michelle has successfully handled large contract disputes, complex custody matters, and appeals at the state level.</p>
+          <p style="margin-top:10px;" class="muted">Bar admissions: California (2014). Education: J.D., University of California Law School.</p>
+        </article>
+
+        <!-- Attorney 2 -->
+        <article class="lawyer">
+          <div class="lawyer-head">
+            <div class="avatar">AR</div>
+            <div>
+              <h3>Anthony Rivera</h3>
+              <div class="role">Partner — Corporate & IP Counsel</div>
+            </div>
+          </div>
+          <p>Anthony advises founders and corporate clients on entity formation, M&A, licensing, and intellectual property protection. He blends transactional precision with practical business insight, supporting growth-stage companies and established enterprise clients alike.</p>
+          <p style="margin-top:10px;" class="muted">Bar admissions: California (2012). Education: J.D., Stanford Law.</p>
+        </article>
+
+        <!-- Attorney 3 -->
+        <article class="lawyer">
+          <div class="lawyer-head">
+            <div class="avatar">SL</div>
+            <div>
+              <h3>Sophia Lee</h3>
+              <div class="role">Senior Counsel — Real Estate & Employment</div>
+            </div>
+          </div>
+          <p>Sophia focuses on commercial real estate transactions and employment matters. Her experience spans complex lease negotiations, land use matters, employment contracts, and workplace compliance. Sophia is valued for her meticulous due diligence and practical counsel on transactional risk.</p>
+          <p style="margin-top:10px;" class="muted">Bar admissions: California (2010). Education: J.D., UCLA School of Law.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="about" class="fade-in">
-  <h2 class="section-title">About Unified Hub</h2>
-  <div class="about-content">
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80" alt="File Management">
-    <div class="about-text">
-      <p>Founded in 2023, Unified Hub began as a vision to revolutionize how digital assets are managed and shared. Today, we’re one of the fastest-growing cloud collaboration platforms, trusted by over 5,000 companies worldwide.</p><br>
-      <p>Our core philosophy centers around simplicity and security — combining cutting-edge technology with a user experience that feels effortless. We invest heavily in AI-driven automation, ensuring our clients never waste time searching or sorting files again.</p><br>
-      <p>We’re headquartered in San Francisco with offices across Europe and Asia, serving industries from fintech and healthcare to media production and education.</p>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Testimonials</h2>
+      <p class="subtitle">We measure success by client outcomes and long-term relationships.</p>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="quote">“Unified Hub guided our acquisition with precision and poise. Their diligence uncovered potential issues early and saved us weeks of delay. Highly recommended.”</div>
+          <div class="t-author">— James Patel, CEO, VerdeTech</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="quote">“Michelle handled our custody matter with empathy and strength. Her strategy was both realistic and protective of our children’s long-term interest.”</div>
+          <div class="t-author">— L. & T. Ramirez</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="quote">“Anthony’s guidance on our licensing agreements allowed us to scale internationally with confidence. Clear, efficient, and commercial.”</div>
+          <div class="t-author">— Priya Das, Founder, BrightApps</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRICING SECTION -->
-<section id="pricing" class="fade-in">
-  <h2 class="section-title">Pricing Plans</h2>
-  <p style="text-align:center; max-width:700px; margin:auto; margin-bottom:3rem;">
-    Choose a plan that fits your team’s size and storage needs. All plans come with enterprise-grade security, 24/7 support, and access to our AI-powered file management tools.
-  </p>
+  <!-- INSIGHTS / BLOG -->
+  <section id="insights">
+    <div class="container">
+      <h2 class="section-title">Legal Insights</h2>
+      <p class="subtitle">Short, practical articles from our attorneys on legal trends, compliance, and best practices.</p>
 
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1000px; margin:auto;">
-    
-    <!-- Basic Plan -->
-    <div style="background:#1f2833; border:1px solid #45a29e; border-radius:10px; padding:2rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.4); transition:transform 0.3s;">
-      <i class="fas fa-user fa-2x" style="color:#66fcf1; margin-bottom:1rem;"></i>
-      <h3 style="color:#fff; margin-bottom:0.5rem;">Starter</h3>
-      <p style="color:#c5c6c7; margin-bottom:1rem;">Perfect for individuals and small teams just getting started.</p>
-      <h2 style="color:#66fcf1; margin-bottom:1rem;">$9<span style="font-size:0.8rem;">/month</span></h2>
-      <ul style="list-style:none; text-align:left; color:#c5c6c7; line-height:1.8; margin-bottom:1.5rem;">
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> 200GB Secure Storage</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Basic File Sharing</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Single User Access</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Email Support</li>
-      </ul>
-      <button style="background:#66fcf1; border:none; padding:0.8rem 2rem; border-radius:5px; font-weight:bold; cursor:pointer; transition:0.3s;">Choose Plan</button>
+      <div class="insights">
+        <article class="post">
+          <div class="meta">By Michelle Hernandez • Sep 3, 2025</div>
+          <h4>When to Consider Litigation vs. Settlement</h4>
+          <p>Deciding whether to litigate or settle requires balancing legal merits, cost, time, and business strategy. This post outlines an early assessment framework, key cost drivers, and tactical steps to preserve leverage.</p>
+        </article>
+
+        <article class="post">
+          <div class="meta">By Anthony Rivera • Aug 12, 2025</div>
+          <h4>IP Basics for Growing Startups</h4>
+          <p>Protecting brand and tech early can unlock commercial value. Learn practical steps for trademark clearance, trade secret protection, and drafting enforceable licensing terms.</p>
+        </article>
+
+        <article class="post">
+          <div class="meta">By Sophia Lee • Jul 21, 2025</div>
+          <h4>Commercial Lease Pitfalls to Avoid</h4>
+          <p>Common lease issues include ambiguous renewal language, expense pass-throughs, and insufficient termination protection. This guide highlights clauses to negotiate and red flags to watch.</p>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <!-- Pro Plan -->
-    <div style="background:#1f2833; border:2px solid #66fcf1; border-radius:10px; padding:2rem; text-align:center; box-shadow:0 3px 15px rgba(102,252,241,0.3); transform:scale(1.03);">
-      <i class="fas fa-users fa-2x" style="color:#66fcf1; margin-bottom:1rem;"></i>
-      <h3 style="color:#fff; margin-bottom:0.5rem;">Professional</h3>
-      <p style="color:#c5c6c7; margin-bottom:1rem;">Best for growing teams that need collaboration and advanced tools.</p>
-      <h2 style="color:#66fcf1; margin-bottom:1rem;">$29<span style="font-size:0.8rem;">/month</span></h2>
-      <ul style="list-style:none; text-align:left; color:#c5c6c7; line-height:1.8; margin-bottom:1.5rem;">
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> 2TB Cloud Storage</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Team Collaboration Tools</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> AI Auto-Organization</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Priority Support</li>
-      </ul>
-      <button style="background:#66fcf1; border:none; padding:0.8rem 2rem; border-radius:5px; font-weight:bold; cursor:pointer; transition:0.3s;">Choose Plan</button>
+  <!-- AWARDS & RECOGNITION -->
+  <section id="awards">
+    <div class="container">
+      <h2 class="section-title">Awards & Recognition</h2>
+      <p class="subtitle">Our work has been recognized by peers and industry publications for client service and excellence.</p>
+      <div class="awards" aria-hidden="true">
+        <div class="award">Top Boutique Firm — Pacific Legal Review (2024)</div>
+        <div class="award">Client Service Excellence — Legal Index (2023)</div>
+        <div class="award">Rising Firm in Litigation — Counsel Quarterly (2022)</div>
+      </div>
     </div>
+  </section>
 
-    <!-- Enterprise Plan -->
-    <div style="background:#1f2833; border:1px solid #45a29e; border-radius:10px; padding:2rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.4); transition:transform 0.3s;">
-      <i class="fas fa-building fa-2x" style="color:#66fcf1; margin-bottom:1rem;"></i>
-      <h3 style="color:#fff; margin-bottom:0.5rem;">Enterprise</h3>
-      <p style="color:#c5c6c7; margin-bottom:1rem;">Custom solutions for large organizations with high security and compliance needs.</p>
-      <h2 style="color:#66fcf1; margin-bottom:1rem;">Custom</h2>
-      <ul style="list-style:none; text-align:left; color:#c5c6c7; line-height:1.8; margin-bottom:1.5rem;">
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Unlimited Storage</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> On-Premise Deployment</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> Dedicated Account Manager</li>
-        <li><i class="fas fa-check" style="color:#66fcf1;"></i> 24/7 Enterprise Support</li>
-      </ul>
-      <button style="background:#66fcf1; border:none; padding:0.8rem 2rem; border-radius:5px; font-weight:bold; cursor:pointer; transition:0.3s;">Contact Sales</button>
+  <!-- CONSULTATION INFO / PRICING SECTION (Consultation-focused) -->
+  <section id="consult">
+    <div class="container">
+      <h2 class="section-title">Consultation & Engagement</h2>
+      <p class="subtitle">We offer an initial case evaluation to help you understand your options and expected next steps.</p>
+
+      <div class="consult-cards">
+        <div class="consult">
+          <div class="price">$0</div>
+          <div style="font-weight:700; color:#16313f;">Initial Case Review</div>
+          <div class="small">30-minute evaluation. Recommended for first-time clients to assess merits and strategy.</div>
+          <ul style="text-align:left; margin-top:12px; color:#3e5562;">
+            <li>Preliminary legal assessment</li>
+            <li>Risk overview & next steps</li>
+            <li>Fee estimate for representation</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <button class="cta" onclick="scrollToContact()">Book Initial Review</button>
+          </div>
+        </div>
+
+        <div class="consult">
+          <div class="price">$250</div>
+          <div style="font-weight:700; color:#16313f;">Consultation — Detailed</div>
+          <div class="small">60-minute strategy session with a lead attorney (recommended for complex matters).</div>
+          <ul style="text-align:left; margin-top:12px; color:#3e5562;">
+            <li>In-depth case strategy</li>
+            <li>Document review (up to 10 pages)</li>
+            <li>Written action plan</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <button class="cta" onclick="scrollToContact()">Book Consultation</button>
+          </div>
+        </div>
+
+        <div class="consult">
+          <div class="price">Custom</div>
+          <div style="font-weight:700; color:#16313f;">Retainer & Full Engagement</div>
+          <div class="small">Custom engagements for corporate transactions, litigation, and long-term matters.</div>
+          <ul style="text-align:left; margin-top:12px; color:#3e5562;">
+            <li>Dedicated attorney + team</li>
+            <li>Predictable billing and milestone planning</li>
+            <li>Custom SLAs for enterprise clients</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <button class="cta" onclick="scrollToContact()">Contact for Proposal</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="subtitle">Common questions clients ask when considering legal representation.</p>
 
+      <div class="faq">
+        <div class="faq-item">
+          <h4>How does the initial case review work?</h4>
+          <p>During the initial case review (30 minutes), we listen to the facts, identify legal issues, and recommend next steps. If documents are needed, we may request them in advance. The review helps determine whether formal representation is appropriate.</p>
+        </div>
 
-<section id="testimonials" class="fade-in">
-  <h2 class="section-title">What Our Clients Say</h2>
-  <div class="testimonials">
-    <div class="testimonial"><p>“Unified Hub has completely changed how we handle digital assets. The automation features alone save us days each month.”</p><div class="author">— Emma Watson, Project Manager @ Cloudify</div></div>
-    <div class="testimonial"><p>“The best investment our company made this year. Their support team is top-notch and the AI categorization is magic.”</p><div class="author">— Mark Rivera, CTO @ NexData</div></div>
-    <div class="testimonial"><p>“We trust Unified Hub with terabytes of client data. Security, speed, and usability — all in one platform.”</p><div class="author">— Sarah Johnson, Operations Lead @ DevTrack</div></div>
-  </div>
-</section>
+        <div class="faq-item">
+          <h4>What are your billing practices?</h4>
+          <p>We offer flexible billing including hourly rates, fixed-fee packages for specific matters, and retainers for ongoing engagements. We provide fee estimates and transparency on likely costs before formal engagement.</p>
+        </div>
 
-<section id="faq" class="fade-in">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-item">
-    <h3>Is Unified Hub secure? <i class="fas fa-chevron-down"></i></h3>
-    <div class="faq-answer">Absolutely. We use AES-256 encryption, MFA, and adhere to GDPR and SOC2 standards for total data security.</div>
-  </div>
-  <div class="faq-item">
-    <h3>Can I integrate Unified Hub with other tools? <i class="fas fa-chevron-down"></i></h3>
-    <div class="faq-answer">Yes, Unified Hub integrates with major platforms like Slack, Microsoft Teams, Google Workspace, and Dropbox.</div>
-  </div>
-  <div class="faq-item">
-    <h3>Do you offer custom enterprise plans? <i class="fas fa-chevron-down"></i></h3>
-    <div class="faq-answer">We offer scalable enterprise plans with dedicated account managers, custom SLAs, and on-premise deployment options.</div>
-  </div>
-  <div class="faq-item">
-    <h3>Is there a free trial? <i class="fas fa-chevron-down"></i></h3>
-    <div class="faq-answer">Yes! You can start with a 14-day free trial to explore all our features with no credit card required.</div>
-  </div>
-</section>
+        <div class="faq-item">
+          <h4>Do you represent out-of-state clients?</h4>
+          <p>Yes. We frequently represent clients with matters affecting California law and collaborate with local counsel in other jurisdictions when necessary. For multistate matters, we coordinate cross-jurisdictional strategies.</p>
+        </div>
 
-<section id="contact" class="fade-in">
-  <h2 class="section-title">Get in Touch</h2>
-  <p style="text-align:center;">Have a question, partnership proposal, or demo request? Fill out the form below — we’d love to connect.</p>
-  <form onsubmit="alert('Message sent successfully!'); return false;">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea rows="5" placeholder="Your Message" required></textarea>
-    <button class="submit">Send Message</button>
-  </form>
-  <div style="text-align:center; margin-top:2rem;">
-    <p><i class="fas fa-envelope"></i> support@unifiedhub.com</p>
-    <p><i class="fas fa-phone"></i> +1 (800) 555-0134</p>
-  </div>
-</section>
+        <div class="faq-item">
+          <h4>Can you help with urgent matters?</h4>
+          <p>We prioritize urgent matters and provide expedited consultations when required. Please indicate urgency when contacting us and we will do our best to accommodate same-day or next-day availability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Unified Hub. All Rights Reserved. | <a href="#home">Back to Top</a></p>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact & Book a Consultation</h2>
+      <p class="subtitle">Complete the form below to request a consultation or call our intake team. We respond to inquiries promptly during business hours.</p>
 
-<script>
-  // Scroll fade-in animation
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+      <div class="contact-panel">
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <label for="name">Full name</label>
+          <input id="name" name="name" required placeholder="Your full name">
+
+          <label for="email">Email address</label>
+          <input id="email" type="email" name="email" required placeholder="you@example.com">
+
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" placeholder="(555) 555-0123">
+
+          <label for="service">Area of interest</label>
+          <select id="service" name="service">
+            <option>Corporate & Business Law</option>
+            <option>Real Estate Law</option>
+            <option>Family Law</option>
+            <option>Civil Litigation</option>
+            <option>Employment & Labor Law</option>
+            <option>Intellectual Property</option>
+            <option>General inquiry</option>
+          </select>
+
+          <label for="message">Brief message</label>
+          <textarea id="message" name="message" placeholder="Describe your situation or the assistance you need..." required></textarea>
+
+          <div style="display:flex; gap:12px; margin-top:12px;">
+            <button type="submit" class="cta">Book a Consultation</button>
+            <button type="button" class="btn-secondary" onclick="clearForm()">Clear</button>
+          </div>
+        </form>
+
+        <aside class="contact-info">
+          <div style="font-weight:700; color:#16313f; margin-bottom:6px;">Office</div>
+          <div>Unified Hub</div>
+          <div class="muted-small">1247 Harbor View Drive, Suite 400<br>Costa Mesa, CA 92626</div>
+
+          <hr style="margin:12px 0; border:none; border-top:1px solid #efece9;">
+
+          <div style="font-weight:700; color:#16313f;">Contact</div>
+          <div style="margin-top:8px;">
+            <div><i class="fa-solid fa-phone" style="color:#b07b2f; margin-right:8px;"></i>(800) 555-0199</div>
+            <div style="margin-top:6px;"><i class="fa-solid fa-envelope" style="color:#b07b2f; margin-right:8px;"></i>contact@unifiedhublegal.com</div>
+          </div>
+
+          <hr style="margin:12px 0; border:none; border-top:1px solid #efece9;">
+
+          <div style="font-weight:700; color:#16313f; margin-bottom:8px;">Hours</div>
+          <div class="muted-small">Mon–Fri: 9:00 AM – 5:00 PM</div>
+
+          <div style="margin-top:14px;">
+            <div style="font-weight:700; color:#16313f; margin-bottom:6px;">Quick intake tips</div>
+            <ol style="color:#3e5562; margin-left:18px;">
+              <li>Summarize your legal issue in 2–3 sentences</li>
+              <li>Attach any key documents during follow-up</li>
+              <li>Tell us your desired outcome</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap;">
+      <div>
+        <strong>Unified Hub</strong><br>
+        1247 Harbor View Drive, Suite 400, Costa Mesa, CA 92626
+      </div>
+      <div>
+        &copy; 2025 Unified Hub • All rights reserved.
+      </div>
+      <div style="text-align:right;">
+        <div><strong>Phone:</strong> (800) 555-0199</div>
+        <div class="small-center">Email: contact@unifiedhublegal.com</div>
+      </div>
+    </div>
+    <div class="small-center">Terms & Privacy • Attorney Advertising Notice</div>
+  </footer>
+
+  <!-- ---------- SCRIPTS & INTERACTIONS ---------- -->
+  <script>
+    // Scroll to contact helper
+    function scrollToContact() {
+      document.querySelector('#contact').scrollIntoView({behavior:'smooth'});
+      document.getElementById('name')?.focus();
+    }
+
+    // Contact form handler (placeholder)
+    function handleContact(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      if (!name || !email) {
+        alert('Please provide your name and email.');
+        return;
+      }
+      // NOTE: This is a demo stub. Replace with real form processing (server or form service).
+      alert('Thank you, ' + name + '. Your request for a ' + service + ' consultation has been received. We will contact you at ' + email + ' shortly.');
+      e.target.reset();
+    }
+
+    function clearForm(){
+      const f = document.querySelector('.contact-form');
+      if (f) f.reset();
+    }
+
+    // FAQ toggles
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => item.classList.toggle('open'));
     });
-  });
-  faders.forEach(fade => observer.observe(fade));
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => item.classList.toggle('active'));
-  });
-</script>
+    // Simple intersection fade-in for sections
+    const sections = document.querySelectorAll('section');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'opacity .9s ease, transform .9s ease';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
+    sections.forEach(sec => {
+      sec.style.opacity = 0;
+      sec.style.transform = 'translateY(18px)';
+      io.observe(sec);
+    });
+
+    // Smooth keyboard accessibility for nav links
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          a.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
