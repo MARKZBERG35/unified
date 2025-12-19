@@ -1,280 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Unified Hub | Legal Recovery & Asset Restitution</title>
-<meta name="description" content="Unified Hub is a legal recovery firm specializing in fraud investigation, fund recovery, asset tracing, and dispute resolution." />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-
-:root {
-  --dark:#0b0f1a;
-  --dark-2:#121829;
-  --light:#f4f6fb;
-  --gray:#a0a4b8;
-  --accent:#c9a24d;
-  --accent-hover:#e0be6a;
-}
-
-body {
-  font-family: "Inter", "Segoe UI", sans-serif;
-  background: var(--dark);
-  color: var(--light);
-  line-height: 1.7;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(11,15,26,0.95);
-  backdrop-filter: blur(6px);
-  padding: 1.2rem 2.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:999;
-}
-
-header h1 {
-  font-size:1.4rem;
-  letter-spacing:1px;
-  color:#fff;
-}
-
-nav a {
-  color:var(--gray);
-  margin-left:1.5rem;
-  text-decoration:none;
-  font-weight:500;
-}
-nav a:hover { color:#fff; }
-
-.hero {
-  padding:9rem 2rem;
-  background:
-    linear-gradient(to bottom, rgba(11,15,26,0.85), rgba(11,15,26,0.95));
-  text-align:center;
-}
-
-.hero h2 {
-  font-size:3rem;
-  max-width:900px;
-  margin:0 auto 1.5rem;
-  font-weight:700;
-}
-
-.hero p {
-  max-width:750px;
-  margin:0 auto 2.5rem;
-  color:var(--gray);
-  font-size:1.15rem;
-}
-
-.btn {
-  display:inline-block;
-  background:var(--accent);
-  color:#000;
-  padding:0.9rem 2.2rem;
-  border-radius:6px;
-  font-weight:700;
-  text-decoration:none;
-  transition:0.3s;
-}
-.btn:hover { background:var(--accent-hover); }
-
-section {
-  padding:5.5rem 2rem;
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title {
-  font-size:2.3rem;
-  text-align:center;
-  margin-bottom:2rem;
-}
-
-.section-subtitle {
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 3rem;
-  color:var(--gray);
-}
-
-.about {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-}
-.about div {
-  background:var(--dark-2);
-  padding:2.5rem;
-  border-radius:10px;
-}
-
-.services {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:2rem;
-}
-
-.service {
-  background:var(--dark-2);
-  padding:2.5rem;
-  border-radius:10px;
-  transition:0.3s;
-}
-.service:hover { transform:translateY(-5px); }
-.service i {
-  font-size:2rem;
-  color:var(--accent);
-  margin-bottom:1rem;
-}
-
-.process {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:2rem;
-}
-
-.step {
-  background:var(--dark-2);
-  padding:2rem;
-  border-radius:10px;
-}
-
-.trust {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:2rem;
-}
-
-.trust-box {
-  background:var(--dark-2);
-  padding:2.5rem;
-  border-left:4px solid var(--accent);
-  border-radius:8px;
-}
-
-.contact {
-  text-align:center;
-  background:linear-gradient(to bottom, #0b0f1a, #121829);
-  border-radius:12px;
-  padding:4rem 2rem;
-}
-
-.contact p {
-  color:var(--gray);
-  margin-bottom:2rem;
-}
-
-footer {
-  text-align:center;
-  padding:2rem;
-  color:var(--gray);
-  font-size:0.9rem;
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jitkoing Associates Inc | Financial & Legal Recovery Specialists</title>
+  <meta name="description" content="Jitkoing Associates Inc is a financial and legal recovery firm specializing in asset recovery, fraud investigation, dispute resolution, and compliance advisory." />
+  <link rel="icon" href="images/favicon.png" />
+  <style>
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; line-height:1.7; color:#1a1a1a; }
+    header { background:#0b1f3a; color:#fff; }
+    .container { width:90%; max-width:1200px; margin:auto; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+    nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:600; }
+    .hero { display:grid; grid-template-columns:1fr 1fr; gap:40px; padding:80px 0; }
+    .hero h1 { font-size:42px; line-height:1.2; }
+    .hero p { font-size:18px; }
+    .hero img { width:100%; border-radius:16px; }
+    section { padding:80px 0; }
+    section h2 { font-size:32px; margin-bottom:20px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .card { background:#f6f8fb; padding:30px; border-radius:16px; }
+    .card img { width:48px; margin-bottom:15px; }
+    .about-img { width:100%; border-radius:16px; }
+    .contact-box { background:#0b1f3a; color:#fff; padding:50px; border-radius:20px; }
+    footer { background:#050e1d; color:#cfcfcf; padding:40px 0; }
+    footer a { color:#cfcfcf; text-decoration:none; }
+    .small { font-size:14px; color:#777; }
+    @media(max-width:900px){ .hero{ grid-template-columns:1fr; } }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Unified Hub</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#trust">Why Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="container">
+    <nav>
+      <div><strong>Jitkoing Associates Inc</strong></div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Financial & Legal Recovery With Integrity, Precision, and Results</h1>
+        <p>
+          Jitkoing Associates Inc is a professional financial and legal recovery firm dedicated to assisting individuals, corporations, and institutions in recovering misappropriated assets, resolving complex disputes, and navigating regulatory and legal challenges with confidence.
+        </p>
+        <p>
+          Our approach combines forensic investigation, legal coordination, and strategic recovery planning to deliver outcomes that are compliant, ethical, and results‑driven.
+        </p>
+      </div>
+      <div>
+        <img src="images/hero-financial-recovery.jpg" alt="Financial recovery professionals" />
+      </div>
+    </div>
+  </div>
 </header>
 
-<section class="hero">
-  <h2>Legal Recovery. Asset Restitution. Strategic Resolution.</h2>
-  <p>
-    Unified Hub is a professional legal recovery firm dedicated to helping individuals
-    and organizations recover lost funds, trace assets, and resolve complex financial disputes.
-  </p>
-  <a href="#contact" class="btn">Request a Confidential Review</a>
-</section>
-
 <section id="about">
-  <h2 class="section-title">About Unified Hub</h2>
-  <p class="section-subtitle">
-    Built on integrity, discretion, and legal precision.
-  </p>
-
-  <div class="about">
-    <div>
-      <h3>Who We Are</h3>
-      <p>
-        Unified Hub is a specialized recovery and advisory firm focused on fraud investigation,
-        embezzlement cases, investment disputes, and asset recovery across multiple jurisdictions.
-      </p>
-    </div>
-    <div>
-      <h3>Our Mission</h3>
-      <p>
-        To restore financial justice by combining legal expertise, investigative intelligence,
-        and strategic enforcement — all while maintaining strict confidentiality.
-      </p>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <h2>About Jitkoing Associates Inc</h2>
+        <p>
+          Jitkoing Associates Inc was established to address the growing need for structured, transparent, and lawful recovery solutions in an increasingly complex financial environment. We work at the intersection of finance, law, and compliance to assist clients facing asset loss, contractual disputes, financial fraud, or regulatory exposure.
+        </p>
+        <p>
+          Our firm operates with strict adherence to international compliance standards and ethical guidelines. We do not engage in speculative practices, unlawful enforcement, or unverified recovery methods. Every engagement begins with a detailed assessment and proceeds only where lawful recovery pathways exist.
+        </p>
+        <p>
+          Our leadership and advisory network includes professionals with backgrounds in financial analysis, legal coordination, compliance auditing, and investigative research.
+        </p>
+      </div>
+      <div>
+        <img src="images/about-corporate.jpg" alt="Corporate legal and financial advisory" class="about-img" />
+      </div>
     </div>
   </div>
 </section>
 
 <section id="services">
-  <h2 class="section-title">Our Services</h2>
-
-  <div class="services">
-    <div class="service"><i class="fas fa-scale-balanced"></i><h4>Fraud Recovery</h4><p>Investment scams, online fraud, and misappropriation of funds.</p></div>
-    <div class="service"><i class="fas fa-bitcoin"></i><h4>Crypto Asset Tracing</h4><p>Blockchain analysis and digital asset recovery.</p></div>
-    <div class="service"><i class="fas fa-building-columns"></i><h4>Embezzlement Cases</h4><p>Corporate and internal financial misconduct.</p></div>
-    <div class="service"><i class="fas fa-file-contract"></i><h4>Dispute Resolution</h4><p>Legal mediation and enforcement strategies.</p></div>
+  <div class="container">
+    <h2>Core Services</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/icon-asset-recovery.png" alt="Asset Recovery Icon" />
+        <h3>Asset & Fund Recovery</h3>
+        <p>
+          Structured recovery support for misappropriated, frozen, withheld, or inaccessible assets. Our process includes documentation review, recovery feasibility analysis, and coordination with legal professionals where applicable.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/icon-fraud.png" alt="Fraud Investigation Icon" />
+        <h3>Financial Fraud Investigation</h3>
+        <p>
+          Identification and analysis of suspected fraud, misrepresentation, breach of trust, or financial misconduct. We assist in compiling evidence and reports suitable for legal and regulatory review.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/icon-dispute.png" alt="Dispute Resolution Icon" />
+        <h3>Dispute Resolution Support</h3>
+        <p>
+          Support services for financial and contractual disputes, including claim documentation, negotiation preparation, and coordination with mediators or legal counsel.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/icon-compliance.png" alt="Compliance Icon" />
+        <h3>Regulatory & Compliance Advisory</h3>
+        <p>
+          Guidance on compliance obligations, reporting requirements, and risk mitigation strategies aligned with financial regulations and best practices.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="process">
-  <h2 class="section-title">Our Process</h2>
-
-  <div class="process">
-    <div class="step"><strong>1. Case Review</strong><p>Confidential evaluation of your situation.</p></div>
-    <div class="step"><strong>2. Investigation</strong><p>Evidence gathering and asset tracing.</p></div>
-    <div class="step"><strong>3. Legal Strategy</strong><p>Jurisdiction-based enforcement plan.</p></div>
-    <div class="step"><strong>4. Recovery</strong><p>Pursuit and restitution of assets.</p></div>
+  <div class="container">
+    <h2>Our Professional Recovery Process</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1. Initial Assessment</h3>
+        <p>
+          We begin with a confidential consultation to understand the nature of the matter, review available documentation, and determine whether lawful recovery pathways exist.
+        </p>
+      </div>
+      <div class="card">
+        <h3>2. Case Evaluation</h3>
+        <p>
+          Our team conducts a structured evaluation, identifying risks, jurisdictional considerations, and potential recovery strategies while ensuring compliance with applicable laws.
+        </p>
+      </div>
+      <div class="card">
+        <h3>3. Strategic Coordination</h3>
+        <p>
+          Where appropriate, we coordinate with legal practitioners, compliance bodies, or investigative specialists to advance the recovery or resolution process.
+        </p>
+      </div>
+      <div class="card">
+        <h3>4. Resolution & Reporting</h3>
+        <p>
+          Clients receive clear communication, documented progress updates, and final reporting upon resolution or closure of the engagement.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="trust">
-  <h2 class="section-title">Why Clients Trust Unified Hub</h2>
-
-  <div class="trust">
-    <div class="trust-box">Discretion and confidentiality at every stage.</div>
-    <div class="trust-box">Cross-border recovery experience.</div>
-    <div class="trust-box">Legally compliant, evidence-driven approach.</div>
+<section id="compliance">
+  <div class="container">
+    <h2>Ethics, Compliance & Transparency</h2>
+    <p>
+      Jitkoing Associates Inc operates under strict ethical standards. We do not guarantee outcomes, solicit unlawful payments, or represent ourselves as a law enforcement agency. All services are provided within applicable legal frameworks.
+    </p>
+    <p>
+      Client confidentiality is treated as a core obligation. Information shared with our firm is handled with discretion and used solely for assessment and advisory purposes.
+    </p>
+    <p>
+      We encourage clients to seek independent legal advice when required and maintain transparency throughout every stage of engagement.
+    </p>
   </div>
 </section>
 
 <section id="contact">
-  <h2 class="section-title">Contact Unified Hub</h2>
-  <div class="contact">
-    <p>
-      All consultations are handled professionally and confidentially.
-    </p>
-    <a href="mailto:jitkiongassociates.inc@outlook.com" class="btn">Email Our Legal Desk</a>
+  <div class="container">
+    <div class="contact-box">
+      <h2>Contact Jitkoing Associates Inc</h2>
+      <p>
+        For confidential inquiries, consultations, or professional correspondence, please complete the form below. A representative will review your submission and respond where appropriate.
+      </p>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <p>
+          <label>Full Name<br />
+            <input type="text" name="name" required style="width:100%; padding:12px; border-radius:8px; border:none; margin-top:6px;" />
+          </label>
+        </p>
+        <p>
+          <label>Email Address<br />
+            <input type="email" name="email" required style="width:100%; padding:12px; border-radius:8px; border:none; margin-top:6px;" />
+          </label>
+        </p>
+        <p>
+          <label>Subject<br />
+            <input type="text" name="subject" required style="width:100%; padding:12px; border-radius:8px; border:none; margin-top:6px;" />
+          </label>
+        </p>
+        <p>
+          <label>Message<br />
+            <textarea name="message" rows="5" required style="width:100%; padding:12px; border-radius:8px; border:none; margin-top:6px;"></textarea>
+          </label>
+        </p>
+        <button type="submit" style="background:#ffffff; color:#0b1f3a; padding:14px 28px; border:none; border-radius:10px; font-weight:600; cursor:pointer;">
+          Submit Inquiry
+        </button>
+      </form>
+
+      <div id="thankYouMessage" style="display:none; margin-top:30px;">
+        <h3>Thank you for your submission</h3>
+        <p>
+          Your message has been successfully submitted. We appreciate you contacting Jitkoing Associates Inc. Our team will review your inquiry and respond if further information is required.
+        </p>
+      </div>
+
+      <p style="margin-top:30px;"><strong>Contact Person:</strong> James Aaron</p>
+      <p><strong>Email:</strong> jitkiongassociates.inc@outlook.com</p>
+      <p class="small">
+        Please note: Submitting this form does not create a client relationship. Services are subject to review, acceptance, and applicable legal considerations.
+      </p>
+    </div>
   </div>
 </section>
 
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('thankYouMessage').style.display = 'block';
+  }
+</script>
+
 <footer>
-  © 2025 Unified Hub. All Rights Reserved.
+  <div class="container">
+    <p>&copy; 2025 Jitkoing Associates Inc. All Rights Reserved.</p>
+    <p class="small">
+      Jitkoing Associates Inc provides financial and recovery advisory services. We do not offer legal representation unless through licensed third‑party professionals.
+    </p>
+  </div>
 </footer>
 
 </body>
