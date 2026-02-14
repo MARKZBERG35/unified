@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<style>
+  body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .cube {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #09f, #0ff);
+    animation: spin 0.5s infinite linear;
+  }
+  @keyframes spin {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+  }
+</style>
+<script>
+  setTimeout(function(){
+    window.location.href = "step2.html";
+  }, 2000);
+</script>
+</head>
+<body>
+  <div class="cube"></div>
+</body>
+</html>
